@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MeloTab — Dashboard for Chrome</title>
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-hover: #4f46e5;
+      --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      --card-bg: rgba(255, 255, 255, 0.9);
+      --text-main: #1f2937;
+      --text-muted: #4b5563;
+      --border: rgba(0, 0, 0, 0.05);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        --card-bg: rgba(30, 41, 59, 0.9);
+        --text-main: #f8fafc;
+        --text-muted: #cbd5e1;
+        --border: rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--text-main);
+      background: var(--bg-gradient);
+      background-attachment: fixed;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    /* Tabs Styling */
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+      position: sticky;
+      top: 20px;
+      z-index: 100;
+    }
+
+    .tab-btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 999px;
+      background: var(--card-bg);
+      color: var(--text-main);
+      cursor: pointer;
+      font-weight: 600;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      backdrop-filter: blur(10px);
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Content Sections */
+    .lang-section { display: none; }
+    .lang-section.active { display: block; }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(15px);
+      padding: 40px;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
+    header { text-align: center; margin-bottom: 40px; }
+    h1 { font-size: 2.5rem; margin: 0; letter-spacing: -1px; }
+    .badge { 
+      display: inline-block; 
+      padding: 4px 12px; 
+      background: var(--primary); 
+      color: white; 
+      border-radius: 6px; 
+      font-size: 0.8rem; 
+      vertical-align: middle;
+      margin-left: 10px;
+    }
+
+    h2 { border-bottom: 2px solid var(--primary); display: inline-block; padding-bottom: 5px; margin-top: 40px; }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+
+    .feature-item {
+      padding: 15px;
+      background: rgba(99, 102, 241, 0.05);
+      border-radius: 12px;
+      font-weight: 500;
+    }
+
+    .permissions-list {
+      background: rgba(0,0,0,0.03);
+      padding: 20px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+    }
+
+    code { background: rgba(0,0,0,0.1); padding: 2px 5px; border-radius: 4px; font-family: monospace; }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.8rem; }
+      .card { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showLang('en')">English</button>
+      <button class="tab-btn" onclick="showLang('uk')">Українська</button>
+      <button class="tab-btn" onclick="showLang('ru')">Русский</button>
+    </div>
+
+    <div class="card">
+      
+      <div id="en" class="lang-section active">
+        <header>
+          <h1>MeloTab <span class="badge">v1.5.0</span></h1>
+          <p>Productivity dashboard for your Chrome New Tab</p>
+        </header>
+
+        <h2>Short Description</h2>
+        <p>Custom new tab with search, tasks, weather, calendar, shortcuts, Gmail badge, AI launcher, and private file sharing.</p>
+
+        <h2>Key Features</h2>
+        <div class="grid">
+          <div class="feature-item">🔍 Multi-engine Search</div>
+          <div class="feature-item">📅 Google Calendar Integration</div>
+          <div class="feature-item">☁️ Live Weather Forecast</div>
+          <div class="feature-item">📧 Gmail Unread Badge</div>
+          <div class="feature-item">🤖 AI Tool Launcher</div>
+          <div class="feature-item">📦 MeloDrop P2P Sharing</div>
+          <div class="feature-item">✅ Persistent Todo List</div>
+          <div class="feature-item">🎨 Auto Light/Dark Themes</div>
+        </div>
+
+        <h2>Privacy & Security</h2>
+        <ul>
+          <li><strong>No Tracking:</strong> No analytics or tracking scripts.</li>
+          <li><strong>Local First:</strong> Data stays in your Chrome storage.</li>
+          <li><strong>No Ads:</strong> Clean, distraction-free interface.</li>
+          <li><strong>Direct P2P:</strong> Files are shared browser-to-browser via WebRTC.</li>
+        </ul>
+
+        <h2>Permissions Justification</h2>
+        <div class="permissions-list">
+          <p><code>storage</code>: Saving settings and your local todo list.</p>
+          <p><code>geolocation</code>: Accurate weather updates (optional).</p>
+          <p><code>host permissions</code>: Accessing weather APIs, search suggestions, and your Calendar/Gmail feeds directly.</p>
+        </div>
+      </div>
+
+      <div id="uk" class="lang-section">
+        <header>
+          <h1>MeloTab <span class="badge">v1.5.0</span></h1>
+          <p>Продуктивна панель керування для вашої нової вкладки Chrome</p>
+        </header>
+
+        <h2>Короткий опис</h2>
+        <p>Персоналізована нова вкладка з пошуком, завданнями, погодою, календарем, ярликами, сповіщеннями Gmail, AI-лаунчером та приватним обміном файлами.</p>
+
+        <h2>Ключові особливості</h2>
+        <div class="grid">
+          <div class="feature-item">🔍 Пошук у різних системах</div>
+          <div class="feature-item">📅 Інтеграція з Google Календарем</div>
+          <div class="feature-item">☁️ Прогноз погоди в реальному часі</div>
+          <div class="feature-item">📧 Лічильник нечитаних Gmail</div>
+          <div class="feature-item">🤖 Лаунчер AI-інструментів</div>
+          <div class="feature-item">📦 MeloDrop P2P передача файлів</div>
+          <div class="feature-item">✅ Список справ (Todo)</div>
+          <div class="feature-item">🎨 Автоматична темна/світла тема</div>
+        </div>
+
+        <h2>Конфіденційність та безпека</h2>
+        <ul>
+          <li><strong>Без відстеження:</strong> Жодних аналітичних скриптів.</li>
+          <li><strong>Локальне зберігання:</strong> Дані залишаються у вашому Chrome.</li>
+          <li><strong>Без реклами:</strong> Чистий інтерфейс без спаму.</li>
+          <li><strong>Прямий P2P:</strong> Файли передаються напряму між браузерами через WebRTC.</li>
+        </ul>
+      </div>
+
+      <div id="ru" class="lang-section">
+        <header>
+          <h1>MeloTab <span class="badge">v1.5.0</span></h1>
+          <p>Продуктивная панель управления для вашей новой вкладки Chrome</p>
+        </header>
+
+        <h2>Краткое описание</h2>
+        <p>Персонализированная новая вкладка с поиском, задачами, погодой, календарем, ярлыками, уведомлениями Gmail, AI-лаунчером и приватным обменом файлами.</p>
+
+        <h2>Основные возможности</h2>
+        <div class="grid">
+          <div class="feature-item">🔍 Поиск в разных системах</div>
+          <div class="feature-item">📅 Интеграция с Google Календарем</div>
+          <div class="feature-item">☁️ Прогноз погоды в реальном времени</div>
+          <div class="feature-item">📧 Счетчик непрочитанных Gmail</div>
+          <div class="feature-item">🤖 Лаунчер AI-инструментов</div>
+          <div class="feature-item">📦 MeloDrop P2P передача файлов</div>
+          <div class="feature-item">✅ Список дел (Todo)</div>
+          <div class="feature-item">🎨 Автоматическая темная/светлая тема</div>
+        </div>
+
+        <h2>Конфиденциальность и безопасность</h2>
+        <ul>
+          <li><strong>Без слежки:</strong> Никакой аналитики или трекеров.</li>
+          <li><strong>Локальность:</strong> Данные хранятся в вашем браузере.</li>
+          <li><strong>Без рекламы:</strong> Чистый интерфейс без отвлекающих факторов.</li>
+          <li><strong>Прямой P2P:</strong> Файлы передаются напрямую через WebRTC.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function showLang(lang) {
+      // Скрыть все секции
+      document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('active'));
+      // Деактивировать все кнопки
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      
+      // Показать нужную
+      document.getElementById(lang).classList.add('active');
+      // Активировать кнопку
+      event.currentTarget.classList.add('active');
+    }
+  </script>
+</body>
+</html>
