@@ -3,46 +3,204 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MeloTab Privacy Policy</title>
+  <title>Privacy Policy - MeloTab</title>
   <style>
-    :root { color-scheme: light dark; }
-    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; line-height: 1.6; }
-    main { max-width: 860px; margin: 0 auto; padding: 28px 16px 60px; }
-    h1, h2 { line-height: 1.25; }
-    code { background: rgba(127,127,127,.15); padding: 2px 6px; border-radius: 6px; }
+    :root {
+      --primary: #6366f1;
+      --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      --card-bg: #ffffff;
+      --text-main: #1f2937;
+      --text-muted: #4b5563;
+      --border-color: rgba(0, 0, 0, 0.08);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        --card-bg: #1e293b;
+        --text-main: #f8fafc;
+        --text-muted: #cbd5e1;
+        --border-color: rgba(255, 255, 255, 0.08);
+      }
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 40px;
+      border-radius: 24px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    }
+
+    header {
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+    }
+
+    h1 {
+      margin: 0 0 10px 0;
+      font-size: 2.25rem;
+      letter-spacing: -0.025em;
+    }
+
+    .date {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 40px;
+      border-left: 4px solid var(--primary);
+      padding-left: 15px;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      margin-top: 25px;
+      color: var(--primary);
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    code {
+      background: rgba(99, 102, 241, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.9em;
+    }
+
+    .footer {
+      margin-top: 50px;
+      padding-top: 30px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .contact-card {
+      background: rgba(99, 102, 241, 0.05);
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 25px; }
+      h1 { font-size: 1.75rem; }
+    }
   </style>
 </head>
 <body>
-  <main>
-    <h1>MeloTab Privacy Policy</h1>
-    <p><strong>Last updated:</strong>05.03.2026</p>
-    <p>MeloTab is a Chrome extension that customizes the browser new tab page.</p>
 
-    <h2>Data we process</h2>
-    <p><strong>1) Local settings data.</strong> Theme, weather preferences, shortcuts, todo items, and UI options are stored in Chrome extension storage.</p>
-    <p><strong>2) Optional geolocation.</strong> If enabled by you, location is used for local weather. If disabled, fallback city can be used.</p>
-    <p><strong>3) Network requests.</strong> Weather and reverse geocoding requests are sent to <code>https://api.open-meteo.com</code> and <code>https://geocoding-api.open-meteo.com</code>.</p>
+  <div class="container">
+    <header>
+      <h1>Privacy Policy</h1>
+      <div class="date">Effective date: March 10, 2026</div>
+    </header>
 
-    <h2>What we do not do</h2>
-    <ul>
-      <li>We do not sell personal data.</li>
-      <li>We do not show ads.</li>
-      <li>We do not use third-party analytics trackers.</li>
-      <li>We do not require account registration.</li>
-    </ul>
+    <section>
+      <p>MeloTab is a Chrome new tab extension. This policy explains what data the extension uses and how it is handled.</p>
+    </section>
 
-    <h2>Data retention</h2>
-    <p>Settings are stored in your browser extension storage until reset/removal or extension uninstall.</p>
+    <section>
+      <h2>Summary</h2>
+      <ul>
+        <li>MeloTab does not sell user data.</li>
+        <li>MeloTab does not run ads.</li>
+        <li>MeloTab does not use analytics or tracking scripts.</li>
+        <li>MeloTab does not send personal data to a developer-controlled backend.</li>
+        <li>Most settings are stored locally in Chrome storage.</li>
+      </ul>
+    </section>
 
-    <h2>Your controls</h2>
-    <ul>
-      <li>You can disable geolocation in settings.</li>
-      <li>You can reset settings at any time.</li>
-      <li>You can uninstall the extension to remove local extension data.</li>
-    </ul>
+    <section>
+      <h2>Data the Extension Uses</h2>
 
-    <h2>Contact</h2>
-    <p>For privacy questions: <a href="mailto:ancwice@gmail.com">ancwice@gmail.com</a></p>
-  </main>
+      <h3>1. Settings and customization data</h3>
+      <p>MeloTab stores interface settings such as theme, background choice, shortcuts, enabled widgets, selected search engine, AI launcher choices, todo items, and similar preferences in Chrome storage so the new tab page can keep the user's setup.</p>
+
+      <h3>2. Weather data and optional location</h3>
+      <p>If the user enables weather by current location, the extension may request the browser's geolocation permission. Location is used only to fetch weather forecast data from Open-Meteo. If the user does not allow location, MeloTab can use a city-based fallback instead.</p>
+
+      <h3>3. Gmail unread count</h3>
+      <p>If the user keeps a Gmail shortcut, MeloTab can request the Gmail Atom feed from <code>mail.google.com</code> to show an unread count badge. The extension reads the unread count only. Email message bodies are not stored by the extension and are not transmitted to the developer.</p>
+
+      <h3>4. Calendar feeds</h3>
+      <p>If the user adds a Google Calendar secret iCal URL, MeloTab fetches that feed directly from Google Calendar and parses upcoming events locally inside the extension. Calendar feed URLs are stored in Chrome storage so the widget can continue to work between sessions.</p>
+
+      <h3>5. Search suggestions</h3>
+      <p>When live search suggestions are enabled, the current query typed into the search box may be sent to the selected suggestion provider such as Google, Bing, DuckDuckGo, or Wikipedia to return suggestion results.</p>
+
+      <h3>6. MeloDrop peer-to-peer file sharing</h3>
+      <p>The optional MeloDrop feature uses public WebRTC trackers and STUN servers to help two browsers discover each other and establish a direct connection. Selected files are transferred directly between participating browsers after connection is established. The extension stores only local convenience data such as device name and last used room name.</p>
+    </section>
+
+    <section>
+      <h2>What MeloTab Does Not Do</h2>
+      <ul>
+        <li>Does not collect browsing history</li>
+        <li>Does not inject scripts into websites</li>
+        <li>Does not read page content from arbitrary tabs</li>
+        <li>Does not upload user files to a developer server</li>
+        <li>Does not use third-party analytics or advertising SDKs</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Data Sharing</h2>
+      <p>MeloTab does not share user data with the developer for resale, profiling, advertising, or analytics. Data is sent only to the third-party services needed for the chosen feature to work:</p>
+      <ul>
+        <li>Open-Meteo for weather and city lookup</li>
+        <li>Google, Bing, DuckDuckGo, or Wikipedia for search suggestions</li>
+        <li>Google Calendar for calendar feeds</li>
+        <li>Gmail for unread count</li>
+        <li>Public WebRTC trackers and STUN servers for MeloDrop peer discovery</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Data Storage</h2>
+      <p>Data is stored in the browser using Chrome extension storage and, where applicable, browser-managed local mechanisms. The user can clear this data by removing the extension or resetting their browser extension storage.</p>
+    </section>
+
+    <section>
+      <h2>Security</h2>
+      <p>MeloTab is designed to keep logic on-device where possible. The extension package contains its application code locally and does not download executable code from remote servers.</p>
+    </section>
+
+    <footer class="footer">
+      <h2>Contact</h2>
+      <div class="contact-card">
+        <strong>Publisher:</strong> MeloTab<br>
+        <strong>Contact email:</strong> <a href="mailto:ancwice@gmail.com">ancwice@gmail.com</a>
+      </div>
+    </footer>
+  </div>
+
 </body>
 </html>
