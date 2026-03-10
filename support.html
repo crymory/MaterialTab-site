@@ -1,29 +1,119 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MeloTab Support</title>
   <style>
-    :root { color-scheme: light dark; }
-    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; line-height: 1.6; }
-    main { max-width: 760px; margin: 0 auto; padding: 28px 16px 60px; }
+    :root {
+      --primary: #6366f1;
+      --primary-hover: #4f46e5;
+      --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      --card-bg: #ffffff;
+      --text-main: #1f2937;
+      --text-muted: #4b5563;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        --card-bg: #1e293b;
+        --text-main: #f8fafc;
+        --text-muted: #cbd5e1;
+      }
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      background: var(--bg-gradient);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-main);
+    }
+
+    main {
+      width: 100%;
+      max-width: 480px;
+      margin: 20px;
+      padding: 40px;
+      background: var(--card-bg);
+      border-radius: 24px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+    }
+
+    p {
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
     .button {
       display: inline-block;
-      padding: 10px 16px;
-      border-radius: 999px;
+      padding: 14px 28px;
+      border-radius: 12px;
       text-decoration: none;
-      background: #3f72de;
+      background: var(--primary);
       color: #fff;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+    }
+
+    .button:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
+    }
+
+    .contact-info {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      font-size: 0.9rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .contact-info { border-top-color: rgba(255, 255, 255, 0.1); }
+    }
+
+    a.email-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a.email-link:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
   <main>
     <h1>MeloTab Support</h1>
-    <p>If you found a bug or want to suggest a feature, please use the feedback form.</p>
-    <p><a class="button" href="https://forms.gle/jeLU4BnttwMRH8uT8" target="_blank" rel="noopener noreferrer">Open Feedback Form</a></p>
-    <p>Contact: <a href="mailto:ancwice@gmail.com">ancwice@gmail.com</a></p>
+    <p>Нашли баг или хотите предложить новую функцию? Мы всегда рады обратной связи!</p>
+    
+    <a class="button" 
+       href="https://docs.google.com/forms/d/e/1FAIpQLSeT8Cmp_laNrP9YpIU-BAgQb8-dEqxhp_MaQA0gWGEYclQsPA/viewform?usp=dialog" 
+       target="_blank" 
+       rel="noopener noreferrer">
+      Открыть форму обратной связи
+    </a>
+
+    <div class="contact-info">
+      Остались вопросы? Пишите нам: <br>
+      <a class="email-link" href="mailto:ancwice@gmail.com">ancwice@gmail.com</a>
+    </div>
   </main>
 </body>
 </html>
